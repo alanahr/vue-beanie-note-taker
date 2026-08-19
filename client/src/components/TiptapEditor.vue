@@ -49,15 +49,16 @@ const emits = defineEmits<{
 
 const liveJson = ref<JSONContent | undefined>(undefined)
 
-const CustomDocument = Document.extend({
-  content: 'formHeader', // Forces the document to consist of our structured header container
-})
+// const CustomDocument = Document.extend({
+//   content: 'formHeader', // Forces the document to consist of our structured header container
+// })
 
 const editor = useEditor({
   content: props.content || '',
   extensions: [
-    FormHeader,
-    CustomDocument,
+    //FormHeader,
+    //CustomDocument,
+    ProtectedToken,
     StarterKit.configure({
       codeBlock: false,
     }),
