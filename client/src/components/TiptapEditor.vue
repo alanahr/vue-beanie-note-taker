@@ -3,7 +3,8 @@ import { useEditor, EditorContent, type JSONContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 import Comment from '../extensions/Comment'
 import Document from '@tiptap/extension-document'
-import FormHeader from '../extensions/FormHeader'
+import ProtectedToken from '../extensions/ProtectedToken'
+// import FormHeader from '../extensions/FormHeader'
 
 // Marks
 import Subscript from '@tiptap/extension-subscript'
