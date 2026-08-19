@@ -1,0 +1,75 @@
+services:
+  client:
+    build:
+      context: ./client
+    env_file:
+      - env/client.env
+    environment:
+      - VITE_API_BASE_URL=http://server:8002
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    depends_on:
+      - server
+    restart: always
+
+  server:
+    build:
+      context: ./server
+    env_file:
+      - env/server.env
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    depends_on:
+      - mongo-data
+      - mongo-rag
+    restart: always
+
+  mongo-data:
+    image: mongodb/mongodb-community-server:latest
+    env_file:
+      - env/mongo.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DATA_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DATA_ROOT_PASSWORD}
+    ports:
+      - "${MONGO_DATA_PORT}:${MONGO_DATA_PORT}"
+    volumes:
+      # Init script runs only on first initialization when the data volume is empty
+      - ./mongo-init/test-mongo-init.js:/docker-entrypoint-initdb.d/test-mongo-init.js:ro
+      - mongo-data-test:/data/db
+    restart: always
+
+  mongo-rag:
+    image: mongodb/mongodb-community-search:latest
+    env_file:
+      - env/mongo.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_RAG_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_RAG_ROOT_PASSWORD}
+    ports:
+      - "${MONGO_RAG_PORT}:${MONGO_RAG_PORT}"
+    volumes:
+      # Init script runs only on first initialization when the data volume is empty
+      - ./mongo-init/test-mongo-init.js:/docker-entrypoint-initdb.d/test-mongo-init.js:ro
+      - mongo-rag-test:/data/db
+    restart: always
+
+  e2e:
+    build:
+      context: ./tests
+    env_file:
+      - env/test.env
+    depends_on:
+      - client
+      - server
+    volumes:
+      - ./tests/cypress:/e2e/cypress
+      - ./tests/cypress.config.ts:/e2e/cypress.config.ts
+      - cypress-results:/e2e/cypress/results
+    environment:
+      - CYPRESS_BASE_URL=http://client:5173
+
+volumes:
+  mongo-data-test:
+  mongo-rag-test:
+  cypress-results:

@@ -1,0 +1,53 @@
+services:
+  client:
+    build:
+      context: ./client
+    env_file:
+      - env/client.env
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    depends_on:
+      - server
+    restart: always
+
+  server:
+    build:
+      context: ./server
+    env_file:
+      - env/server.env
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    depends_on:
+      - mongo-data
+      - mongo-rag
+    restart: always
+
+  mongo-data:
+    image: mongodb/mongodb-community-server:latest
+    env_file:
+      - env/mongo.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_DATA_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_DATA_ROOT_PASSWORD}
+    ports:
+      - "${MONGO_DATA_PORT}:${MONGO_DATA_PORT}"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+  mongo-rag:
+    image: mongodb/mongodb-community-search:latest
+    env_file:
+      - env/mongo.env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_RAG_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_RAG_ROOT_PASSWORD}
+    ports:
+      - "${MONGO_RAG_PORT}:${MONGO_RAG_PORT}"
+    volumes:
+      - mongo-rag:/data/db
+    restart: always
+
+volumes:
+  mongo-data:
+  mongo-rag:

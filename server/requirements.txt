@@ -1,0 +1,8 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+beanie==1.29.0
+motor==3.6.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+sentence-transformers==3.4.1
+numpy==2.2.1

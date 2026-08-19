@@ -1,0 +1,14 @@
+{
+  "name": "tiptap-editor-e2e-tests",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "open": "cypress open",
+    "run": "cypress run",
+    "e2e": "cypress run --browser electron"
+  },
+  "devDependencies": {
+    "cypress": "^13.15.0"
+  }
+}

@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/extensions/Comment.ts","./src/services/documentApi.ts","./src/types/comment.ts","./src/types/document.ts","./src/types/index.ts","./src/App.vue","./src/components/CommentPanel.vue","./src/components/EditorToolbar.vue","./src/components/HelloWorld.vue","./src/components/TiptapEditor.vue"],"version":"5.9.3"}

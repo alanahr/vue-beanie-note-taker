@@ -1,0 +1,22 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "heading",
+      "attrs": { "level": 2 },
+      "content": [
+        { "type": "text", "text": "Test Document Heading" }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        { "type": "text", "text": "This is a test paragraph with " },
+        { "type": "text", "marks": [{ "type": "bold" }], "text": "bold text" },
+        { "type": "text", "text": " and " },
+        { "type": "text", "marks": [{ "type": "italic" }], "text": "italic text" },
+        { "type": "text", "text": "." }
+      ]
+    }
+  ]
+}
