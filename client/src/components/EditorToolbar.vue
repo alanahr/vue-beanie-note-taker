@@ -22,6 +22,21 @@ const addToken = () =>{
     jsonData: { id: 123, role: 'admin', email: 'john@example.com' }
   })
 }
+
+const addCustomField = () =>{
+  props.editor.commands.insertContent({
+  type: 'customField',
+  attrs: { label: 'First Name' }, // Passed in as an argument property
+  content: [
+    { type: 'customFieldLabel' },
+    { 
+      type: 'customFieldContent',
+      content: [{ type: 'text', text: 'John Doe' }] // Flat plain text value strings
+    }
+  ]
+})
+}
+  
 const addComment = () => {
   if (!props.editor || props.editor.state.selection.empty) return
   const text = props.editor.state.doc.textBetween(
