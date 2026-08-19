@@ -40,3 +40,5 @@ export const FormHeader = Node.create({
     }
   },
 })
+
+export default FormHeader
