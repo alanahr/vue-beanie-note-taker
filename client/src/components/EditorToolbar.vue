@@ -264,14 +264,19 @@ const addDetails = () => {
       >
         💬 Comment
       </button>
-    </div>
-    <div class="toolbar-group">
       <button
         class="toolbar-button"
         @click="addToken"
         title="Add Token"
       >
         Token
+      </button>
+      <button
+        class="toolbar-button"
+        @click="addCustomField"
+        title="Add Custom Field"
+      >
+        Test Custom Field
       </button>
     </div>
   </div>
