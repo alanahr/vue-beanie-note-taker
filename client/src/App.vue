@@ -12,20 +12,7 @@ import type { DocumentRecord } from './types'
 const defaultContent = (): JSONContent => ({
   type: 'doc',
   content: [
-    {
-      type: 'formHeader',
-      content: [
-        {
-          type: 'paragraph',
-          content: [
-            {
-              type: 'text',
-              text: 'This is the first editable paragraph inside the form.',
-            },
-          ],
-        }
-      ],
-    },
+    
     { type: 'heading', attrs: { level: 2 }, content: [{ type: 'text', text: 'Welcome to the Tiptap Editor' }] },
     { type: 'paragraph', content: [
       { type: 'text', text: 'This is a rich text editor built with ' },
