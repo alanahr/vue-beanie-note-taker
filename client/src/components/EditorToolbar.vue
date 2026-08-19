@@ -18,9 +18,9 @@ const updateHeadingLevel = (level: number) => {
 }
 const addToken = () =>{
   props.editor.commands.insertToken({
-  label: 'User: John Doe',
-  jsonData: { id: 123, role: 'admin', email: 'john@example.com' }
-})
+    label: 'User: John Doe',
+    jsonData: { id: 123, role: 'admin', email: 'john@example.com' }
+  })
 }
 const addComment = () => {
   if (!props.editor || props.editor.state.selection.empty) return
