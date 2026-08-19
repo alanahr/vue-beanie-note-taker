@@ -75,3 +75,5 @@ export const ProtectedToken = Node.create({
     }
   },
 })
+
+export default ProtectedToken
