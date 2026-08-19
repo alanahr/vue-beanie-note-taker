@@ -436,4 +436,14 @@ watch(() => props.content, (newContent) => {
 .ProseMirror .find-result.current {
   background-color: #fdba74;
 }
+  .protected-node {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  user-select: none; /* Prevents text selection highlighting inside */
+  display: inline-block;
+  vertical-align: middle;
+}
 </style>
