@@ -1,5 +1,7 @@
 import { Node } from '@tiptap/core'
 
+//TODO - this file unused as usages commented out in TiptapEditor.vue, but keep
+// need to revisit this and the ProtectedToken.ts file and combine into reusable and more flexible component
 export const FormHeader = Node.create({
   name: 'formHeader',
   group: 'block',
