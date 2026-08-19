@@ -113,4 +113,4 @@ export const CustomFieldContent = Node.create({
   },
 })
 
-export default CustomField
+//export default CustomField
