@@ -1,7 +1,7 @@
 import { Node, mergeAttributes } from '@tiptap/core'
 import { VueNodeViewRenderer } from '@tiptap/vue-3'
 import { Plugin, PluginKey } from '@tiptap/pm/state'
-import CustomFieldComponent from './CustomFieldComponent.vue'
+import CustomFieldComponent from '../components/CustomFieldComponent.vue'
 
 export const CustomField = Node.create({
   name: 'customField',
