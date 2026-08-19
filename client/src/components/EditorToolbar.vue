@@ -16,7 +16,12 @@ const headingLevel = ref(0)
 const updateHeadingLevel = (level: number) => {
   headingLevel.value = isActive('heading', { level }) ? 0 : level
 }
-
+const addToken = () =>{
+  props.editor.commands.insertToken({
+  label: 'User: John Doe',
+  jsonData: { id: 123, role: 'admin', email: 'john@example.com' }
+})
+}
 const addComment = () => {
   if (!props.editor || props.editor.state.selection.empty) return
   const text = props.editor.state.doc.textBetween(
