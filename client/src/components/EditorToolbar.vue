@@ -265,6 +265,15 @@ const addDetails = () => {
         💬 Comment
       </button>
     </div>
+    <div class="toolbar-group">
+      <button
+        class="toolbar-button"
+        @click="addToken"
+        title="Add Token"
+      >
+        Token
+      </button>
+    </div>
   </div>
 </template>
 
