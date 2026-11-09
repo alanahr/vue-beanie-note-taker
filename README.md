@@ -2,6 +2,8 @@
 
 A rich text editor built with [Tiptap v3](https://tiptap.dev), Vue 3, TypeScript, and Vuetify, backed by a FastAPI + Beanie Python API and two MongoDB databases — one for document storage and one for RAG (retrieval-augmented generation) vector search.
 
+This is still a WIP as it's just the latest version of the same functionality but with different technologies (Nov 2026)
+
 ## Architecture
 
 ```
